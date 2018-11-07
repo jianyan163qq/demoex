@@ -14,14 +14,14 @@ public class DemoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
-        while (true){
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            log.info("======================started============================");
-            log.info("started");
-        }
+//        while (true){
+//            try {
+//                Thread.sleep(1000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//            log.info("======================started============================");
+//            log.info("started");
+//        }
     }
 }
