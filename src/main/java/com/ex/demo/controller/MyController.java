@@ -86,6 +86,26 @@ public class MyController {
     @GetMapping("test5")
     public Map test5() throws Exception {
         TbClass tbClass = tbClassMapper.selectByPrimaryKey(1L);
+        byte[] src = tbClass.getClassFile();
+
+        System.out.println(src);
+        DynamicEngine de = DynamicEngine.getInstance();
+        Object instance = de.javaCodeToObject(tbClass.getClassPackage(),new String(src));
+//        ((MyClass)instance).say("lucy");
+
+        Method[] fields = instance.getClass().getDeclaredMethods();
+        for (Method field : fields) {
+            Object value = field.invoke(instance, "lucy");
+            System.out.println(value);
+        }
+        Map map = new HashMap(1);
+        map.put("test3", test);
+        return map;
+    }
+
+    @GetMapping("test6")
+    public Map test6() throws Exception {
+        TbClass tbClass = tbClassMapper.selectByPrimaryKey(1L);
         String src = tbClass.getClassFile().toString();
 
         System.out.println(src);

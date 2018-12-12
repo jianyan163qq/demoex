@@ -1,8 +1,10 @@
 package com.ex.demo.model;
 
+import javax.persistence.Id;
 import java.io.Serializable;
 
 public class TbClass implements Serializable {
+    @Id
     private Long id;
 
     private String classPackage;
